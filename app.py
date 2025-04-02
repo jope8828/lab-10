@@ -1,9 +1,9 @@
 #
 # This script was written by: Joshua Peters
 # Date: 4/1/25
-# Modified: 4/1/2025
-# Purpose: 
-# Usage:
+# Purpose: Generate webpages via Render
+# Usage: (used during Render deployment)
+#
 
 from flask import Flask
 import psycopg2
@@ -97,4 +97,4 @@ def db_drop():
     conn.commit()
     conn.close()
 
-    return "Basketball Table Successfully Populated"
+    return "Basketball Table Successfully Dropped"

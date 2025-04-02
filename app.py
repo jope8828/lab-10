@@ -25,14 +25,14 @@ def db_create():
     cur = conn.cursor()
 
     cur.execute('''
-    CREATE TABLE IF NOT EXISTS Basketball(
-        First varchar(255),
-        Last varchar(255),
-        City varchar(255),
-        Name varchar(255),
-        Number int
-        );
-    ''')
+        CREATE TABLE IF NOT EXISTS Basketball(
+            First varchar(255),
+            Last varchar(255),
+            City varchar(255),
+            Name varchar(255),
+            Number int
+            );
+        ''')
 
     conn.commit()
     conn.close()
@@ -44,7 +44,7 @@ def db_insert():
     conn = psycopg2.connect("postgresql://lab_10_database_neu6_user:R4HMkxxlwa3rjNVNE29EUhRn505UKS17@dpg-cvmb2mnfte5s73akthv0-a/lab_10_database_neu6")
     cur = conn.cursor()
 
-    cur.execute(''''
+    cur.execute('''
         INSERT INTO Basketball (First, Last, City, Name, Number)
         Values
         ('Jayson', 'Tatum', 'Boston', 'Celtics', 0),

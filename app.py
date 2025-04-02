@@ -50,8 +50,8 @@ def db_insert():
         ('Jayson', 'Tatum', 'Boston', 'Celtics', 0),
         ('Stephen', 'Curry', 'San Francisco', 'Warriors', 30),
         ('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
-        ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);'
-        ''')
+        ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
+    ''')
     
     conn.commit()
     conn.close()
@@ -63,9 +63,9 @@ def db_select():
     conn = psycopg2.connect("postgresql://lab_10_database_neu6_user:R4HMkxxlwa3rjNVNE29EUhRn505UKS17@dpg-cvmb2mnfte5s73akthv0-a/lab_10_database_neu6")
     cur = conn.cursor()
 
-    cur.execute(''''
+    cur.execute('''
         SELECT * FROM Basketball;
-        ''')
+    ''')
     
     records = cur.fetchall()
     conn.close()
@@ -83,3 +83,17 @@ def db_select():
     response_string += "</table>"
 
     return response_string
+
+@app.route('/db_drop')
+def db_drop():
+    conn = psycopg2.connect("postgresql://lab_10_database_neu6_user:R4HMkxxlwa3rjNVNE29EUhRn505UKS17@dpg-cvmb2mnfte5s73akthv0-a/lab_10_database_neu6")
+    cur = conn.cursor()
+
+    cur.execute('''
+        DROP TABLE Basketball;
+    ''')
+    
+    conn.commit()
+    conn.close()
+
+    return "Basketball Table Successfully Populated"

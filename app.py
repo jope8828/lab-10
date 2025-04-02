@@ -84,6 +84,7 @@ def db_select():
 
     return response_string
 
+
 @app.route('/db_drop')
 def db_drop():
     conn = psycopg2.connect("postgresql://lab_10_database_neu6_user:R4HMkxxlwa3rjNVNE29EUhRn505UKS17@dpg-cvmb2mnfte5s73akthv0-a/lab_10_database_neu6")
